@@ -26,7 +26,7 @@ go build main.go
 # Run
 ### Copy Downloader
 ```
-git 
+git https://github.com/ZhangCharles/applemusic-dl-bot.git
 cp ./applemusic-downloader/main ./applemusic-dl-bot/main
 cp ./applemusic-downloader/agent.js ./applemusic-dl-bot/agent.js
 cp ./applemusic-downloader/agent-arm64.js ./applemusic-dl-bot/agent-arm64.js
