@@ -55,9 +55,16 @@ async def amdl(client, message: types.Message):
                   thumb=thumb,
                 )
               )
+            #Media Group Limit 1-10
             for i in range(0, len(audio_gourp), 10):
               batch = audio_gourp[i:i + 10]
-              await message.reply_media_group(media=batch)
+              msg = await message.reply_media_group(media=batch)
+              #转发到频道
+              if env.CHANNEL:
+                ids = []
+                for m in msg:
+                  ids.append(m.id)
+                await app.forward_messages(chat_id=env.CHANNEL, from_chat_id=message.chat.id, message_ids=ids)
             for f in file_list:
               os.remove(f)
             if cover:
